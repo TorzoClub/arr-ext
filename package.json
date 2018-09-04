@@ -1,0 +1,22 @@
+{
+  "name": "arr-ext",
+  "version": "0.2.1",
+  "description": "",
+  "main": "dist/cjs.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rollup -c rollup.config.js",
+    "benchmark": "node ./benchmark"
+  },
+  "author": "Vec",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^7.0.0",
+    "@babel/preset-env": "^7.0.0",
+    "babel-plugin-rewire-exports": "^1.0.1",
+    "babel-preset-latest": "^6.24.1",
+    "benchmark": "^2.1.4",
+    "rollup-plugin-babel": "^4.0.3",
+    "rollup-plugin-node-resolve": "^3.3.0"
+  }
+}
