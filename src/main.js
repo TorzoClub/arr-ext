@@ -17,6 +17,44 @@ const array_extend = {
     return this
   },
 
+  isLast(item) {
+    const last_item = this.lastItem()
+
+    return last_item && (last_item === item)
+  },
+
+  isLastBy(prop, val) {
+    return this.isLastByMatch({ [prop]: val })
+  },
+
+  isLastByIndex(index) {
+    return index === (this.length - 1)
+  },
+
+  isLastByMatch(match_obj) {
+    return this.isLastByIndex(
+      this.indexByMatch(match_obj)
+    )
+  },
+
+  isFirst(item) {
+    return item === this[0]
+  },
+
+  isFirstBy(prop, val) {
+    return this.isFirstByMatch({ [prop]: val })
+  },
+
+  isFirstByIndex(index) {
+    return this.length && !index
+  },
+
+  isFirstByMatch(match_obj) {
+    return this.isFirstByIndex(
+      this.indexByMatch(match_obj)
+    )
+  },
+
   lastItem() {
     return this[this.length - 1]
   },
