@@ -1,3 +1,5 @@
+const deprecate = require('depd')('arr-ext')
+
 function ObjectValueCompare(source, target) {
   return Object.keys(source).every(key => {
     return target.hasOwnProperty(key) && source[key] === target[key]
@@ -5,7 +7,12 @@ function ObjectValueCompare(source, target) {
 }
 
 const array_extend = {
-  insert(insert_point, item) {
+  insert() {
+    deprecate('`insert` will be deprecate')
+    return this.insertBefore(...arguments)
+  },
+
+  insertBefore(insert_point, item) {
     const right = this.splice(insert_point, this.length)
     if (Array.isArray(item)) {
       this.push(...item)
@@ -66,8 +73,18 @@ const array_extend = {
     }
   },
 
+  removeByMatch(match_obj) {
+    return this.removeByIndex(
+      this.indexByMatch(match_obj)
+    )
+  },
+
   removeByIndex(index) {
-    return this.splice(index, 1)[0]
+    if (index >= 0) {
+      return this.splice(index, 1)[0]
+    } else {
+      return undefined
+    }
   },
 
   assignByMatch(match_obj, ...args) {

@@ -4,7 +4,7 @@
   "description": "",
   "main": "dist/cjs.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "ava ./test --verbose",
     "test-watch": "ava ./test --watch",
     "build": "rollup -c rollup.config.js",
     "benchmark": "node ./benchmark"
@@ -20,5 +20,8 @@
     "benchmark": "^2.1.4",
     "rollup-plugin-babel": "^4.0.3",
     "rollup-plugin-node-resolve": "^3.3.0"
+  },
+  "dependencies": {
+    "depd": "^1.1.2"
   }
 }
