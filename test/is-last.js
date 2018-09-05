@@ -1,5 +1,5 @@
 import test from 'ava'
-import '../src/main'
+import './_test_envirment'
 
 test(`isLast'`, t => {
   const arr = [2, 3, 1, 7, 9]
